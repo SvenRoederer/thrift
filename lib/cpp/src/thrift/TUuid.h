@@ -17,6 +17,9 @@
  * under the License.
  */
 
+#pragma once
+#include <sstream>
+
 #ifndef _THRIFT_TUUID_H_
 #define _THRIFT_TUUID_H_ 1
 
