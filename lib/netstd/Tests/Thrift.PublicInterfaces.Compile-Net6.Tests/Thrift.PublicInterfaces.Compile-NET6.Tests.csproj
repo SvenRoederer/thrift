@@ -38,7 +38,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.ServiceModel.Primitives" Version="8.0.0" />
+    <PackageReference Include="System.ServiceModel.Primitives" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -51,7 +51,10 @@
     <CreateProperty Condition="Exists('thrift')" Value="thrift">
       <Output TaskParameter="Value" PropertyName="PathToThrift" />
     </CreateProperty>
-    <Error Condition="!Exists('$(PathToThrift)')" Text="Thrift executable could not be found." />
+      <CreateProperty Condition="Exists('/sven/source/thrift/out/build/x64-Debug/compiler/cpp/bin/thrift.exe')" Value="/sven/source/thrift/out/build/x64-Debug/compiler/cpp/bin/thrift.exe">
+          <Output TaskParameter="Value" PropertyName="PathToThrift" />
+      </CreateProperty>
+      <Error Condition="!Exists('$(PathToThrift)')" Text="Thrift executable could not be found." />
     <!-- Make sure the thrift version found is the same as the projects version -->
     <Exec Command="$(PathToThrift) -version" ConsoleToMSBuild="true">
       <Output TaskParameter="ConsoleOutput" PropertyName="ThriftBinaryVersion" />
