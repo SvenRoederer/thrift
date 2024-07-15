@@ -61,6 +61,9 @@
     <CreateProperty Condition="Exists('$(ProjectDir)/../../../../compiler/cpp/thrift')" Value="$(ProjectDir)/../../../../compiler/cpp/thrift">
       <Output TaskParameter="Value" PropertyName="PathToThrift" />
     </CreateProperty>
+    <CreateProperty Condition="Exists('/sven/source/thrift/out/build/x64-Debug/compiler/cpp/bin/thrift.exe')" Value="/sven/source/thrift/out/build/x64-Debug/compiler/cpp/bin/thrift.exe">
+      <Output TaskParameter="Value" PropertyName="PathToThrift" />
+    </CreateProperty>
     <Error Condition="!Exists('$(PathToThrift)')" Text="Thrift executable could not be found." />
     <!-- Make sure the thrift version found is the same as the projects version -->
     <Exec Command="$(PathToThrift) -version" ConsoleToMSBuild="true">
