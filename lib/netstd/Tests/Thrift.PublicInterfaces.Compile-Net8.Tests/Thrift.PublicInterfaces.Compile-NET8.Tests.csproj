@@ -24,8 +24,8 @@
     <TargetFramework>net8.0</TargetFramework>
     <LangVersion>latestMajor</LangVersion>
     <Version>$(ThriftVersion).0</Version>
-    <AssemblyName>Thrift.PublicInterfaces.Compile.Tests</AssemblyName>
-    <PackageId>Thrift.PublicInterfaces.Compile.Tests</PackageId>
+    <AssemblyName>Thrift.PublicInterfaces.Compile-Net8.Tests</AssemblyName>
+    <PackageId>Thrift.PublicInterfaces.Compile-Net8-Net8.Tests</PackageId>
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
@@ -47,21 +47,28 @@
 
   <Target Name="PreBuild" BeforeTargets="_GenerateRestoreProjectSpec;Restore;Compile">
     <!-- Check on the path -->
-    <Exec Condition="'$(OS)' == 'Windows_NT'" Command="where thrift" ConsoleToMSBuild="true">
+<!--
+      <Exec Condition="'$(OS)' == 'Windows_NT_'" Command="where thrift" ConsoleToMSBuild="true">
+      <Output TaskParameter="ConsoleOutput" PropertyName="PathToThrift" />
+      </Exec>
+
+<Exec Condition="'$(OS)' != 'Windows_NT'" Command="which thrift || true" ConsoleToMSBuild="true">
       <Output TaskParameter="ConsoleOutput" PropertyName="PathToThrift" />
     </Exec>
-    <Exec Condition="'$(OS)' != 'Windows_NT'" Command="which thrift || true" ConsoleToMSBuild="true">
-      <Output TaskParameter="ConsoleOutput" PropertyName="PathToThrift" />
-    </Exec>
+-->
     <!-- Check in the current directory -->
     <CreateProperty Condition="Exists('thrift')" Value="thrift">
-      <Output TaskParameter="Value" PropertyName="PathToThrift" />
+     <Output TaskParameter="Value" PropertyName="PathToThrift" />
     </CreateProperty>
     <!-- Check for the root projects output -->
-    <CreateProperty Condition="Exists('$(ProjectDir)/../../../../compiler/cpp/thrift')" Value="$(ProjectDir)/../../../../compiler/cpp/thrift">
-      <Output TaskParameter="Value" PropertyName="PathToThrift" />
-    </CreateProperty>
-    <Error Condition="!Exists('$(PathToThrift)')" Text="Thrift executable could not be found." />
+      <CreateProperty Condition="Exists('$(ProjectDir)/../../../../compiler/cpp/thrift')" Value="$(ProjectDir)/../../../../compiler/cpp/thrift">
+          <Output TaskParameter="Value" PropertyName="PathToThrift" />
+      </CreateProperty>
+      <CreateProperty Condition="Exists('/sven/source/thrift/out/build/x64-Debug/compiler/cpp/bin/thrift.exe')" Value="/sven/source/thrift/out/build/x64-Debug/compiler/cpp/bin/thrift.exe">
+          <Output TaskParameter="Value" PropertyName="PathToThrift" />
+      </CreateProperty>
+      <Message Text="'$(ProjectDir)' $(ProjectDir.length) " />
+      <Error Condition="!Exists('$(PathToThrift)')" Text="Thrift executable could not be found." />
     <!-- Make sure the thrift version found is the same as the projects version -->
     <Exec Command="$(PathToThrift) -version" ConsoleToMSBuild="true">
       <Output TaskParameter="ConsoleOutput" PropertyName="ThriftBinaryVersion" />
