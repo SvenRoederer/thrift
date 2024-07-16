@@ -17,13 +17,14 @@
 # under the License.
 #
 
-SUBDIRS = . 
+SUBDIRS = .
 
 all-local:
 	$(DOTNETCORE) build -c Release
 
 check-local:
 	$(DOTNETCORE) test Tests/Thrift.PublicInterfaces.Compile.Tests/Thrift.PublicInterfaces.Compile.Tests.csproj
+	$(DOTNETCORE) test Tests/Thrift.PublicInterfaces.Compile-Net8.Tests/Thrift.PublicInterfaces.Compile-Net8.Tests.csproj
 	$(DOTNETCORE) test Tests/Thrift.Tests/Thrift.Tests.csproj
 	$(DOTNETCORE) test Tests/Thrift.IntegrationTests/Thrift.IntegrationTests.csproj
 
@@ -38,6 +39,8 @@ clean-local:
 	$(RM) -r Tests/Thrift.IntegrationTests/obj
 	$(RM) -r Tests/Thrift.PublicInterfaces.Compile.Tests/bin
 	$(RM) -r Tests/Thrift.PublicInterfaces.Compile.Tests/obj
+	$(RM) -r Tests/Thrift.PublicInterfaces.Compile-Net8.Tests/bin
+	$(RM) -r Tests/Thrift.PublicInterfaces.Compile-Net8.Tests/obj
 
 EXTRA_DIST = \
 	README.md \
@@ -50,6 +53,8 @@ EXTRA_DIST = \
 	Tests/Thrift.PublicInterfaces.Compile.Tests/optional_required_default.thrift \
 	Tests/Thrift.PublicInterfaces.Compile.Tests/Properties/AssemblyInfo.cs \
 	Tests/Thrift.PublicInterfaces.Compile.Tests/Thrift.PublicInterfaces.Compile.Tests.csproj \
+	Tests/Thrift.PublicInterfaces.Compile-Net8.Tests \
+	Tests/Thrift.PublicInterfaces.Compile-Net8.Tests/Thrift.PublicInterfaces.Compile-Net8.Tests.csproj \
 	Tests/Thrift.Tests/Collections \
 	Tests/Thrift.Tests/DataModel \
 	Tests/Thrift.Tests/Protocols \
@@ -74,4 +79,4 @@ EXTRA_DIST = \
 	build.sh \
 	runtests.cmd \
 	runtests.sh
-	
+
