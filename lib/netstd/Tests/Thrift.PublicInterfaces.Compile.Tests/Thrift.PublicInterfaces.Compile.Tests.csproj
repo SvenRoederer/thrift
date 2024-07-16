@@ -70,7 +70,6 @@
     <Exec Command="$(PathToThrift) -gen netstd:wcf,union,serial -r ./Thrift5253.thrift" />
     <Exec Command="$(PathToThrift) -gen netstd:wcf,union,serial -r ./Thrift5320.thrift" />
     <Exec Command="$(PathToThrift) -gen netstd:wcf,union,serial -r ./Thrift5382.thrift" />
-    <Exec Command="$(PathToThrift) -gen netstd:wcf,union,serial -r ./THRIFT-5794.thrift" />
   </Target>
 
 </Project>

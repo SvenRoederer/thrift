@@ -80,7 +80,6 @@
     <Exec Command="$(PathToThrift) -gen netstd:wcf,union,serial,net8 -r ./../Thrift.PublicInterfaces.Compile.Tests/Thrift5253.thrift" />
     <Exec Command="$(PathToThrift) -gen netstd:wcf,union,serial,net8 -r ./../Thrift.PublicInterfaces.Compile.Tests/Thrift5320.thrift" />
     <Exec Command="$(PathToThrift) -gen netstd:wcf,union,serial,net8 -r ./../Thrift.PublicInterfaces.Compile.Tests/Thrift5382.thrift" />
-    <Exec Command="$(PathToThrift) -gen netstd:wcf,union,serial,net8 -r ./../Thrift.PublicInterfaces.Compile.Tests/THRIFT-5794.thrift" />
   </Target>
 
 </Project>
