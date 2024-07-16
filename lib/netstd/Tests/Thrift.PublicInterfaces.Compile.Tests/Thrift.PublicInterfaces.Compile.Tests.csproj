@@ -21,7 +21,7 @@
   <PropertyGroup>
     <ThriftVersion>0.21.0</ThriftVersion>
     <ThriftVersionOutput>Thrift version $(ThriftVersion)</ThriftVersionOutput>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <LangVersion>latestMajor</LangVersion>
     <Version>$(ThriftVersion).0</Version>
     <AssemblyName>Thrift.PublicInterfaces.Compile.Tests</AssemblyName>
@@ -38,7 +38,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.ServiceModel.Primitives" Version="6.0.0" />
+    <PackageReference Include="System.ServiceModel.Primitives" Version="8.0.0" />
   </ItemGroup>
 
   <ItemGroup>
