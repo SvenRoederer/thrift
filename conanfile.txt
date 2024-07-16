@@ -1,0 +1,10 @@
+[requires]
+winflexbison/2.5.25
+boost/1.85.0
+
+[generators]
+cmake_paths
+cmake_find_package
+
+[options]
+#*:shared = True
