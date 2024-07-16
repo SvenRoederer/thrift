@@ -81,15 +81,6 @@
     <Exec Command="$(PathToThrift) -gen netstd:wcf,union,serial,net8 -r -o net8 ./Thrift5320.thrift" />
     <Exec Command="$(PathToThrift) -gen netstd:wcf,union,serial,net8 -r -o net8 ./Thrift5382.thrift" />
     <Exec Command="$(PathToThrift) -gen netstd:wcf,union,serial,net8 -r -o net8 ./THRIFT-5794.thrift" />
-    <Exec Command="$(PathToThrift) -gen netstd:wcf,union,serial -r -o net6 ./CassandraTest.thrift" />
-    <Exec Command="$(PathToThrift) -gen netstd:wcf,union,serial -r -o net6 ./optional_required_default.thrift" />
-    <Exec Command="$(PathToThrift) -gen netstd:wcf,union,serial -r -o net6 ./name_conflicts.thrift" />
-    <Exec Command="$(PathToThrift) -gen netstd:wcf,union,serial -r -o net6 ./../../../../test/ThriftTest.thrift" />
-    <Exec Command="$(PathToThrift) -gen netstd:wcf,union,serial -r -o net6 ./../../../../contrib/fb303/if/fb303.thrift" />
-    <Exec Command="$(PathToThrift) -gen netstd:wcf,union,serial -r -o net6 ./Thrift5253.thrift" />
-    <Exec Command="$(PathToThrift) -gen netstd:wcf,union,serial -r -o net6 ./Thrift5320.thrift" />
-    <Exec Command="$(PathToThrift) -gen netstd:wcf,union,serial -r -o net6 ./Thrift5382.thrift" />
-    <Exec Command="$(PathToThrift) -gen netstd:wcf,union,serial -r -o net6 ./THRIFT-5794.thrift" />
   </Target>
 
 </Project>
