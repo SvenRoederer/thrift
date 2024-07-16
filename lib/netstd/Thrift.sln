@@ -12,7 +12,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thrift.Tests", "Tests\Thrif
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thrift.PublicInterfaces.Compile.Tests", "Tests\Thrift.PublicInterfaces.Compile.Tests\Thrift.PublicInterfaces.Compile.Tests.csproj", "{A6AE021D-61CB-4D84-A103-0B663C62AE2C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thrift.PublicInterfaces.Compile-NET8.Tests", "Tests\Thrift.PublicInterfaces.Compile-Net8.Tests\Thrift.PublicInterfaces.Compile-NET8.Tests.csproj", "{A47C249D-3CE9-417E-A3BF-B45B90C12989}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thrift.PublicInterfaces.Compile-Net8.Tests", "Tests\Thrift.PublicInterfaces.Compile-Net8.Tests\Thrift.PublicInterfaces.Compile-Net8.Tests.csproj", "{A47C249D-3CE9-417E-A3BF-B45B90C12989}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Benchmarks", "Benchmarks", "{BF7B896B-8BB6-447C-84F8-26871882A14A}"
 EndProject
