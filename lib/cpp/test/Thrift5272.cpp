@@ -35,11 +35,27 @@ using namespace thrift5272;
 BOOST_AUTO_TEST_CASE( printto )
 {
   auto a = Meta();
-  a.channel = 50;
-  a.sequence = 500;
+
   std::cout << "test a : ";
-//a.printTo(std::cout);
-  std::cout << std::to_string(a.channel);
+//  std::cout << std::to_string(a.channel);
+  a.printTo(std::cout);
+  std::cout << ";\t";
+
+  a.byte_type = 50;
+  a.i8_type = 50;
+  a.i16_type = 50;
+  a.i32_type = 50;
+  a.i64_type = 50;
+  a.printTo(std::cout);
+  std::cout << ";\t";
+
+  a.byte_type = 127;
+  a.i8_type = 127;
+  a.i16_type = 127;
+  a.i32_type = 127;
+  a.i64_type = 127;
+  a.printTo(std::cout);
+
   std::cout << std::endl;
 }
 
