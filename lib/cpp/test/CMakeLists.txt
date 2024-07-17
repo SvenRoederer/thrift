@@ -47,6 +47,7 @@ set(testgencpp_SOURCES
     gen-cpp/OneWayService.h
     gen-cpp/TypedefTest_types.cpp
     gen-cpp/TypedefTest_types.h
+    gen-cpp/Thrift5272_types.h
     ThriftTest_extras.cpp
     DebugProtoTest_extras.cpp
 )
@@ -83,6 +84,7 @@ set(UnitTest_SOURCES
     TServerTransportTest.cpp
     ThrifttReadCheckTests.cpp
     TUuidTest.cpp
+    Thrift5272.cpp
 )
 
 add_executable(UnitTests ${UnitTest_SOURCES})
@@ -405,6 +407,10 @@ add_custom_command(OUTPUT gen-cpp/Service.cpp gen-cpp/StressTest_types.cpp
 
 add_custom_command(OUTPUT gen-cpp/SecondService.cpp gen-cpp/ThriftTest_constants.cpp gen-cpp/ThriftTest.cpp gen-cpp/ThriftTest_types.cpp gen-cpp/ThriftTest_types.h
     COMMAND ${THRIFT_COMPILER} --gen cpp ${PROJECT_SOURCE_DIR}/test/ThriftTest.thrift
+)
+
+add_custom_command(OUTPUT gen-cpp/Thrift5272_types.h
+    COMMAND ${THRIFT_COMPILER} --gen cpp ${CMAKE_CURRENT_SOURCE_DIR}/Thrift5272.thrift
 )
 
 add_custom_command(OUTPUT gen-cpp/OneWayService.cpp gen-cpp/OneWayTest_types.h gen-cpp/OneWayService.h
