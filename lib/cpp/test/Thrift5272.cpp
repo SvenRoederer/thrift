@@ -19,11 +19,11 @@
 
 #include <boost/test/unit_test.hpp>
 #include <iostream>
+#include <sstream>
 #include "gen-cpp/Thrift5272_types.h"
 
 BOOST_AUTO_TEST_SUITE(Thrift5272Test)
 
-using std::string;
 namespace utf = boost::unit_test;
 
 // Define this env var to enable some logging (in case you need to debug)
@@ -32,31 +32,47 @@ namespace utf = boost::unit_test;
 using namespace thrift5272;
 
 
-BOOST_AUTO_TEST_CASE( printto )
+BOOST_AUTO_TEST_CASE( Thrift5272 )
 {
-  auto a = Meta();
+  std::stringstream ss;
+  std::string text;
+  Meta a = Meta();
 
-  std::cout << "test a : ";
-//  std::cout << std::to_string(a.channel);
-  a.printTo(std::cout);
-  std::cout << ";\t";
+//  a.printTo(std::cout);
+//  std::cout << ";\t";
+  a.printTo(ss);
+  text = ss.str();
+  BOOST_TEST_MESSAGE( "Boost: " << text);
+  BOOST_TEST(text == "Meta(byte_type=0, i8_type=0, i16_type=0, i32_type=0, i64_type=0)");
 
+  ss.clear();
+  ss.str("");
   a.byte_type = 50;
   a.i8_type = 50;
   a.i16_type = 50;
   a.i32_type = 50;
   a.i64_type = 50;
-  a.printTo(std::cout);
-  std::cout << ";\t";
+//  a.printTo(std::cout);
+//  std::cout << ";\t";
+  a.printTo(ss);
+  text = ss.str();
+  BOOST_TEST_MESSAGE( "Boost: " << text);
+  BOOST_TEST(text == "Meta(byte_type=50, i8_type=50, i16_type=50, i32_type=50, i64_type=50)");
 
+  ss.clear();
+  ss.str("");
   a.byte_type = 127;
   a.i8_type = 127;
   a.i16_type = 127;
   a.i32_type = 127;
   a.i64_type = 127;
-  a.printTo(std::cout);
+//  a.printTo(std::cout);
+//  std::cout << std::endl;
+  a.printTo(ss);
+  text = ss.str();
+  BOOST_TEST_MESSAGE( "Boost: " << text);
+  BOOST_TEST(text == "Meta(byte_type=127, i8_type=127, i16_type=127, i32_type=127, i64_type=127)");
 
-  std::cout << std::endl;
 }
 
 BOOST_AUTO_TEST_SUITE_END()
