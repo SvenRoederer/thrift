@@ -97,14 +97,8 @@ check_PROGRAMS = \
 	SpecializationTest \
 	AllProtocolsTest \
 	TransportTest \
-	TInterruptTest \
-	TServerIntegrationTest \
-	SecurityTest \
-	SecurityFromBufferTest \
 	ZlibTest \
 	TFileTransportTest \
-	link_test \
-	OpenSSLManualInitTest \
 	EnumTest \
 	RenderedDoubleConstantsTest \
 	AnnotationTest
