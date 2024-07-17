@@ -25,9 +25,9 @@ if WITH_TESTS
 SUBDIRS += test
 endif
 
-if WITH_TUTORIAL
-SUBDIRS += tutorial
-endif
+#if WITH_TUTORIAL
+#SUBDIRS += tutorial
+#endif
 
 clean-local:
 	$(RM) -r vendor/
