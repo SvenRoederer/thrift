@@ -24,12 +24,13 @@ BUILT_SOURCES = gen-cpp/AnnotationTest_types.h \
                 gen-cpp/OptionalRequiredTest_types.h \
                 gen-cpp/Recursive_types.h \
                 gen-cpp/ThriftTest_types.h \
+                gen-cpp/Thrift5272_types.h \
                 gen-cpp/TypedefTest_types.h \
                 gen-cpp/ChildService.h \
                 gen-cpp/EmptyService.h \
                 gen-cpp/ParentService.h \
-		gen-cpp/OneWayTest_types.h \
-		gen-cpp/OneWayService.h \
+                gen-cpp/OneWayTest_types.h \
+                gen-cpp/OneWayService.h \
                 gen-cpp/proc_types.h
 
 noinst_LTLIBRARIES = libtestgencpp.la libprocessortest.la
@@ -50,6 +51,8 @@ nodist_libtestgencpp_la_SOURCES = \
 	gen-cpp/ThriftTest_types.h \
 	gen-cpp/ThriftTest_constants.cpp \
 	gen-cpp/ThriftTest_constants.h \
+	gen-cpp/Thrift5272_types.cpp \
+	gen-cpp/Thrift5272_types.h \
 	gen-cpp/TypedefTest_types.cpp \
 	gen-cpp/TypedefTest_types.h \
 	gen-cpp/OneWayService.cpp \
@@ -104,7 +107,7 @@ check_PROGRAMS = \
 	OpenSSLManualInitTest \
 	EnumTest \
 	RenderedDoubleConstantsTest \
-        AnnotationTest
+	AnnotationTest
 
 if AMX_HAVE_LIBEVENT
 noinst_PROGRAMS += \
@@ -134,6 +137,7 @@ UnitTests_SOURCES = \
 	TServerTransportTest.cpp \
 	TTransportCheckThrow.h \
 	ThrifttReadCheckTests.cpp \
+	Thrift5272.cpp \
 	TUuidTest.cpp
 
 UnitTests_LDADD = \
@@ -419,6 +423,8 @@ gen-cpp/DebugProtoTest_types.cpp gen-cpp/DebugProtoTest_types.h gen-cpp/EmptySer
 gen-cpp/DoubleConstantsTest_constants.cpp gen-cpp/DoubleConstantsTest_constants.h: $(top_srcdir)/test/DoubleConstantsTest.thrift
 	$(THRIFT) --gen cpp $<
 
+gen-cpp/Thrift5272_types.h: Thrift5272.thrift
+	$(THRIFT) --gen cpp $<
 
 gen-cpp/EnumTest_types.cpp gen-cpp/EnumTest_types.h: $(top_srcdir)/test/EnumTest.thrift
 	$(THRIFT) --gen cpp $<
