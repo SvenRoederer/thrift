@@ -32,9 +32,6 @@ set(thrift_VERSION "0.21.0")
 set(PACKAGE_VERSION ${thrift_VERSION})
 
 project("thrift" VERSION ${PACKAGE_VERSION})
-
-include("conan_paths.cmake")
-
 message(STATUS "Configuring ${CMAKE_PROJECT_NAME} ${thrift_VERSION}")
 
 
