@@ -38,11 +38,8 @@ BOOST_AUTO_TEST_CASE( printTo )
   std::string text;
   Meta a = Meta();
 
-//  a.printTo(std::cout);
-//  std::cout << ";\t";
   a.printTo(ss);
   text = ss.str();
-  BOOST_TEST_MESSAGE("Boost: " << text);
   BOOST_TEST(text == "Meta(byte_type=0, i8_type=0, i16_type=0, i32_type=0, i64_type=0)");
 
   ss.clear();
@@ -52,11 +49,8 @@ BOOST_AUTO_TEST_CASE( printTo )
   a.i16_type = 50;
   a.i32_type = 50;
   a.i64_type = 50;
-//  a.printTo(std::cout);
-//  std::cout << ";\t";
   a.printTo(ss);
   text = ss.str();
-  BOOST_TEST_MESSAGE("Boost: " << text);
   BOOST_TEST(text == "Meta(byte_type=50, i8_type=50, i16_type=50, i32_type=50, i64_type=50)");
 
   ss.clear();
@@ -66,13 +60,9 @@ BOOST_AUTO_TEST_CASE( printTo )
   a.i16_type = 127;
   a.i32_type = 127;
   a.i64_type = 127;
-//  a.printTo(std::cout);
-//  std::cout << std::endl;
   a.printTo(ss);
   text = ss.str();
-  BOOST_TEST_MESSAGE("Boost: " << text);
   BOOST_TEST(text == "Meta(byte_type=127, i8_type=127, i16_type=127, i32_type=127, i64_type=127)");
-
 }
 
 BOOST_AUTO_TEST_CASE( ostream_handle_int8_to_str )
