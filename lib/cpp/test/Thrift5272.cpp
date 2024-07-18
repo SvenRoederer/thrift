@@ -32,7 +32,7 @@ namespace utf = boost::unit_test;
 using namespace thrift5272;
 
 
-BOOST_AUTO_TEST_CASE( Thrift5272 )
+BOOST_AUTO_TEST_CASE( printTo )
 {
   std::stringstream ss;
   std::string text;
@@ -42,7 +42,7 @@ BOOST_AUTO_TEST_CASE( Thrift5272 )
 //  std::cout << ";\t";
   a.printTo(ss);
   text = ss.str();
-  BOOST_TEST_MESSAGE( "Boost: " << text);
+  BOOST_TEST_MESSAGE("Boost: " << text);
   BOOST_TEST(text == "Meta(byte_type=0, i8_type=0, i16_type=0, i32_type=0, i64_type=0)");
 
   ss.clear();
@@ -56,7 +56,7 @@ BOOST_AUTO_TEST_CASE( Thrift5272 )
 //  std::cout << ";\t";
   a.printTo(ss);
   text = ss.str();
-  BOOST_TEST_MESSAGE( "Boost: " << text);
+  BOOST_TEST_MESSAGE("Boost: " << text);
   BOOST_TEST(text == "Meta(byte_type=50, i8_type=50, i16_type=50, i32_type=50, i64_type=50)");
 
   ss.clear();
@@ -70,9 +70,17 @@ BOOST_AUTO_TEST_CASE( Thrift5272 )
 //  std::cout << std::endl;
   a.printTo(ss);
   text = ss.str();
-  BOOST_TEST_MESSAGE( "Boost: " << text);
+  BOOST_TEST_MESSAGE("Boost: " << text);
   BOOST_TEST(text == "Meta(byte_type=127, i8_type=127, i16_type=127, i32_type=127, i64_type=127)");
 
+}
+
+BOOST_AUTO_TEST_CASE( ostream_handle_int8_to_str )
+{
+  int8_t t = 65;
+  std::ostringstream o;
+  o << t;
+  BOOST_TEST(o.str() != "65", "ostingstream handles int8 correctly. let's drop specialization for Thrift5272 from TToString.h.");
 }
 
 BOOST_AUTO_TEST_SUITE_END()
